@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-goatcounter="https://nur-nasrum.goatcounter.com/count" async
+      src="//gc.zgo.at/count.js"></script>
+    <title>Nur Nasrum - Researcher</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script>(function(){if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
+    <style>
+    :root {
+      color-scheme: light;
+      --bg: #fbfbf7;
+      --surface: #ffffff;
+      --text: #1a1a18;
+      --muted: #686862;
+      --secondary: #444440;
+      --accent: #1b5a7a;
+      --accent-light: #e6f2f4;
+      --gold: #8a6d1f;
+      --border: #e4e2da;
+      --tag-bg: #f0f0ea;
+      --shadow: 0 12px 28px rgba(31, 43, 38, 0.07);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --nav-bg: rgba(255, 255, 255, 0.92);
+      --nav-shadow: rgba(226, 226, 220, 0.55);
+      --border-strong: rgba(226, 226, 220, 0.9);
+      --hover-border: #b0c4e0;
+      --hover-accent-bg: #d0e0f5;
+      --hero-link-bg: rgba(255, 255, 255, 0.68);
+      --hero-link-hover-border: #a6c9d2;
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0d1117;
+      --surface: #1f242a;
+      --text: #e6edf3;
+      --muted: #dbdfe4;
+      --secondary: #a3abb9;
+      --accent: #58a6ff;
+      --accent-light: #0a4297cb;
+      --gold: #ffd166;
+      --border: #30363d;
+      --tag-bg: #2a2f36;
+      --shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+      --nav-bg: rgba(13, 17, 23, 0.92);
+      --nav-shadow: rgba(255, 255, 255, 0.05);
+      --border-strong: #30363d;
+      --hover-border: #58a6ff;
+      --hover-accent-bg: #1a5fd1;
+      --hero-link-bg: rgba(31, 36, 42, 0.70);
+      --hero-link-hover-border: #58a6ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--nav-shadow);
+    }
+
+    nav .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 58px;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--text);
+      font-weight: 500;
+      border-bottom: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+      border-bottom: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .theme-toggle .bi-sun {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .bi-moon {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-toggle .bi-sun {
+      display: inline;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 56px;
+      align-items: start;
+    }
+
+    .rail {
+      position: sticky;
+      top: 82px;
+      align-self: start;
+      max-height: calc(100vh - 114px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      padding: 40px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .rail>* {
+      flex-shrink: 0;
+    }
+
+    .rail-photo {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--accent);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      color: var(--accent);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 0 auto;
+    }
+
+    .rail-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .rail-title {
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 700;
+      margin: 0 0 2px;
+    }
+
+    .rail-name {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1.05;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .rail-affiliation {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .rail-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .rail-line:first-child {
+      color: var(--text);
+    }
+
+    .rail-affiliation a {
+      font-weight: 700;
+      border-bottom: none;
+    }
+
+    .rail-links {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .rail-links .hero-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid var(--border) !important;
+      background: var(--hero-link-bg);
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+
+    .rail-links .hero-link:hover {
+      color: var(--accent);
+      border-color: var(--hero-link-hover-border) !important;
+      background: var(--surface);
+    }
+
+    .rail-links .hero-link.location {
+      cursor: default;
+      color: var(--muted);
+    }
+
+    .rail-links .hero-link.location:hover {
+      color: var(--muted);
+      border-color: var(--border) !important;
+      background: var(--hero-link-bg);
+    }
+
+    section {
+      padding: 38px 0;
+      scroll-margin-top: 74px;
+    }
+
+    #intro {
+      padding: 76px 0 38px;
+    }
+
+    .hero-bio {
+      font-size: 1.02rem;
+      line-height: 1.78;
+      color: var(--text);
+      max-width: 640px;
+      margin-bottom: 22px;
+    }
+
+    .interests {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .tag.accent {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    section {
+      padding: 38px 0;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.48rem;
+      font-weight: 500;
+      margin-bottom: 22px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* News */
+    .news-list {
+      list-style: none;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      padding: 8px 0;
+    }
+
+    .news-date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+
+    .news-text {
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .proof-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-left: 5px;
+      border-bottom: none !important;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .proof-link:hover {
+      background: var(--hover-accent-bg);
+      border-bottom: none !important;
+    }
+
+    [data-theme="dark"] .tag.accent,
+    [data-theme="dark"] .pub-link,
+    [data-theme="dark"] .proof-link {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .theme-toggle,
+      .rail-links .hero-link,
+      .pub-item,
+      .collaborator-card,
+      .more-btn {
+        transition: none !important;
+      }
+    }
+
+    .more-btn {
+      margin-top: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .more-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Publications */
+    .pub-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pub-item {
+      padding: 17px 18px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+
+    .pub-item:hover {
+      border-color: var(--hover-border);
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+
+    .pub-venue {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 5px;
+    }
+
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .pub-title a {
+      color: var(--text);
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .pub-title a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .pub-authors {
+      font-size: 0.83rem;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .pub-authors .me {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .pub-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pub-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pub-link {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      border: 1px solid var(--accent-light) !important;
+      background: var(--accent-light);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border-bottom: none !important;
+    }
+
+    .pub-link:hover {
+      background: var(--hover-accent-bg);
+      border-bottom: none !important;
+    }
+
+    /* Publication subsection headers */
+    .pub-subsection-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 24px 0 12px;
+      padding-bottom: 6px;
+    }
+
+    .pub-subsection-title:first-child {
+      margin-top: 0;
+    }
+
+    /* Patents */
+    .patent-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .patent-item {
+      padding: 15px 18px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .patent-status {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gold);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 5px;
+    }
+
+    .patent-title {
+      font-family: var(--serif);
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+
+    .patent-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* Collaborations */
+    .collab-list {
+      list-style: none;
+    }
+
+    .collab-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .collab-period {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding-top: 3px;
+      line-height: 1.6;
+    }
+
+    .collab-content h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .collab-content .org {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .collab-content p,
+    .collab-content li {
+      font-size: 0.88rem;
+      color: var(--secondary);
+      line-height: 1.65;
+    }
+
+    .collab-content ul {
+      padding-left: 16px;
+      margin-top: 4px;
+    }
+
+    .collab-content li {
+      margin-bottom: 3px;
+    }
+
+    /* Past Collaborators */
+    .collaborators-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .collaborator-card {
+      padding: 15px 16px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .collaborator-card:hover {
+      border-color: var(--hover-border);
+      box-shadow: var(--shadow);
+    }
+
+    .collaborator-inst {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .collaborator-name {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .collaborator-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .collab-intro {
+      font-size: 0.92rem;
+      color: var(--secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .collab-institutions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .inst-tag {
+      background: var(--tag-bg);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 4px 11px;
+      border-radius: 3px;
+    }
+
+    /* Sessions */
+    .session-list {
+      list-style: none;
+    }
+
+    .session-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      padding: 6px 0;
+    }
+
+    .session-date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+
+    .session-text {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    /* Grants */
+    .grant-subsection-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 0 0 12px;
+      padding-bottom: 6px;
+    }
+
+    .grant-group {
+      margin-bottom: 28px;
+    }
+
+    .grant-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .grant-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 15px 18px;
+      margin-bottom: 12px;
+    }
+
+    .grant-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .grant-item.contributed {
+      border-left-color: var(--accent);
+    }
+
+    .grant-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .grant-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .grant-desc {
+      font-size: 0.88rem;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-group h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .skill-group p {
+      font-size: 0.83rem;
+      color: var(--secondary);
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 36px 0 42px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .rail {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        padding: 24px 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 24px;
+      }
+
+      .rail-photo {
+        width: 120px;
+        height: 120px;
+        margin: 0;
+      }
+
+      .rail-title {
+        display: none;
+      }
+
+      .rail-name {
+        font-size: 2rem;
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      .rail-affiliation {
+        max-width: none;
+        text-align: center;
+      }
+
+      .rail-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .rail-links .hero-link {
+        flex: 0 1 auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 0 20px;
+      }
+
+      nav .inner {
+        padding: 10px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        min-height: auto;
+        gap: 8px;
+      }
+
+      .nav-links {
+        gap: 14px;
+        justify-content: flex-start;
+      }
+
+      section,
+      #intro {
+        scroll-margin-top: 104px;
+      }
+
+      .rail {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .rail-photo {
+        width: 96px;
+        height: 96px;
+      }
+
+      .rail-name {
+        font-size: 1.8rem;
+      }
+
+      .rail-links {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      .collab-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .news-item {
+        grid-template-columns: 76px 1fr;
+      }
+
+      .session-item {
+        grid-template-columns: 76px 1fr;
+      }
+
+      .collaborators-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <nav>
+      <div class="inner">
+        <span class="nav-brand">NS</span>
+        <ul class="nav-links">
+          <li><a href="#intro">Intro</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#collaborations">Collaborations</a></li>
+          <li><a href="#sessions">Talks</a></li>
+          <li><a href="#grants">Grants</a></li>
+          <!--<li><a href="#">CV</a></li>-->
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <i class="bi bi-moon"></i><i class="bi bi-sun"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="page">
+      <div class="layout" id="top">
+        <aside class="rail">
+          <p class="rail-title">Researcher · Engineer</p>
+          <div class="rail-photo">
+            <img src="./data/profile_photo/DSC09730.png" alt="Nur Nasrum">
+          </div>
+          <h1 class="rail-name">Nur Nasrum</h1>
+          <p class="rail-affiliation">
+            <span class="rail-line">R&amp;D Engineer · Wearable Team</span>
+            <span class="rail-line">– <a
+                href="https://research.samsung.com/srbd"
+                target="_blank">Samsung Research</a></span>
+          </p>
+          <div class="rail-links">
+            <span class="hero-link location"><i class="bi bi-geo-alt-fill"></i> Dhaka, Bangladesh</span>
+            <a class="hero-link" href="mailto:nn.nasrum@gmail.com"><i class="bi bi-envelope-fill"></i> Email</a>
+            <a class="hero-link" href="https://scholar.google.com/citations?user=Hhc5IX8AAAAJ&hl=en" target="_blank"><i class="bi bi-mortarboard-fill"></i> Google Scholar</a>
+            <a class="hero-link" href="https://github.com/nur-nasrum" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+            <a class="hero-link" href="https://linkedin.com/in/nur-nasrum" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
+          </div>
+        </aside>
+
+        <main class="content">
+          <section id="intro">
+            <h2>Intro</h2>
+            <p class="hero-bio">
+              I am an R&D Engineer at <a href="https://research.samsung.com/srbd" target="_blank">Samsung Research Bangladesh</a>, where I work on wearable sensing pipelines and production systems for Galaxy devices. Previously, I was an undergraduate student and research assistant at <a href="https://www.iutoic-dhaka.edu/about">IUTOIC</a>. My research interest revolves around On-Device AI, Acoustic and Physical Behavior Sensing, Trustworthy ML — developing practical, human-centered technology for health and assistive use cases.
+            </p>
+            <div class="interests">
+              <span class="tag accent">Human-Centered Interaction with Wearables</span>
+              <span class="tag accent">Biosensing</span>
+              <span class="tag accent">AI for Health</span>
+              <span class="tag accent">Gesture Recognition</span>
+              <span class="tag">Trustworthy ML</span>
+              <span class="tag">On-Device AI</span>
+            </div>
+          </section>
+
+          <!-- News -->
+          <section id="news">
+            <h2>News</h2>
+            <ul class="news-list" id="newsList">
+              <li class="news-item">
+                <span class="news-date">Feb 2026</span>
+                <span class="news-text"><strong>Intellect of the Quarter</strong> — Awarded by <a href="https://research.samsung.com/srbd" target="_blank">Samsung Research</a> for a significant contribution to research and development in wearable systems.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Dec 2025</span>
+                <span class="news-text"><strong>Recognition of Excellence in Innovation</strong>, Q4 2025 — Recognized by <a href="https://research.samsung.com/srbd" target="_blank">Samsung Research</a> for research excellence, and for a patent accepted on optimizing wearable-device benchmarks.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Aug 2025</span>
+                <span class="news-text"><strong>Achieved A1 graded patent</strong> — Co-authored a methodology to reduce boot time in Wearable devices, accepted as an A1 graded patent by <a href="https://patents.google.com/?assignee=Samsung+Electronics+Co.%2c+Ltd.&sort=new" target="_blank">Samsung Electronics Co., Ltd.</a> (submitted for filing).</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Jul 2025</span>
+                <span class="news-text"><strong>Recognition of Excellence in Development</strong>, Q3 2025 — Recognized by <a href="https://research.samsung.com/srbd" target="_blank">Samsung Research</a> for crucial performance optimizations in low power mode ahead of the Galaxy Watch8 release.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Jul 2025</span>
+                <span class="news-text"><strong>SRBD AI PoC Champion</strong> — Our team won SRBD's internal contest and was awarded prize money.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Dec 2024</span>
+                <span class="news-text"><strong>Samsung Professional Certification</strong> — Passed the Samsung Electronics proctored assessment on System Design and Algorithms, earning certification and a cash prize. <a class="proof-link" href="https://www.linkedin.com/in/nur-nasrum/overlay/Certifications/1717573036/treasury/?profileId=ACoAAEIw0TUBu5uj9pfUItkOK9CrD4hB-uS3q2k" target="_blank">Certificate ↗</a></span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Jun 2024</span>
+                <span class="news-text"><strong>Became an Engineer</strong> — Joined <a href="https://research.samsung.com/srbd" target="_blank"><strong>Samsung R&D Institute, Bangladesh</strong></a> as a full-time R&D Engineer working on Galaxy Wearable systems.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Jun 2024</span>
+                <span class="news-text"><strong>Graduated with Bachelor</strong> — Graduated with Bachelor of Science in CS obtaining a first-class GPA.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Feb 2024</span>
+                <span class="news-text"><strong>ACM ICPC Asia West Finalist</strong> — Competed in my first international programming contest.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Dec 2023</span>
+                <span class="news-text"><strong>Samsung Advanced Certification</strong> — Passed Samsung Electronics proctored assessment on problem solving with Data Structures and Algorithms.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Nov 2023</span>
+                <span class="news-text"><strong>ACM ICPC Honorable Mention</strong> — Received Honorable Mention in the ACM ICPC Dhaka Regional Contest 2023 and qualified for the ICPC Asia West Final round. <a class="proof-link" href="https://www.linkedin.com/in/nur-nasrum/overlay/Certifications/2006357691/treasury?profileId=ACoAAEIw0TUBu5uj9pfUItkOK9CrD4hB-uS3q2k" target="_blank">Certificate ↗</a></span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">Sep 2023</span>
+                <span class="news-text"><strong>Awarded LeetCode Knight</strong> — Reached top 3% of LeetCode programmers globally and received the LeetCode Knight badge. <a class="proof-link" href="https://leetcode.com/medal/?showImg=0&id=10284052&isLevel=false" target="_blank">Link ↗</a></span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">2022</span>
+                <span class="news-text"><strong>Top 20% in Google Code Jam</strong> — Placed within the top 20% of global participants in the qualification round of the competition.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">2020–24</span>
+                <span class="news-text"><strong>Government Scholarship</strong> — Higher Secondary Certification Examination, Bangladesh.</span>
+              </li>
+              <li class="news-item">
+                <span class="news-date">2017–19</span>
+                <span class="news-text"><strong>Government Scholarship</strong> — Senior School Certification Examination, Bangladesh.</span>
+              </li>
+            </ul>
+            <button class="more-btn" id="moreBtn" onclick="toggleNews()">Show more ↓</button>
+          </section>
+
+          <!-- Publications -->
+          <section id="publications">
+            <h2>Publications</h2>
+
+            <p class="pub-subsection-title">Patents</p>
+            <ul class="patent-list">
+              <li class="patent-item">
+                <div class="patent-status">Accepted (Graded Highest: A1) · Samsung Electronics Co Ltd · Aug 2025</div>
+                <div class="patent-title">Wearable Boot Time Optimization</div>
+                <div class="patent-meta">Samsung R&D Institute, Bangladesh</div>
+              </li>
+            </ul>
+
+            <p class="pub-subsection-title">Under Review</p>
+            <ul class="patent-list">
+              <li class="patent-item">
+                <div class="patent-status">Prior Art Search: Passed · Building Proof-of-Concept</div>
+                <div class="patent-title">Fluid Intake Estimation via Dual-Channel Acoustic Sensing</div>
+                <div class="patent-meta">Samsung R&D Institute, Bangladesh</div>
+              </li>
+              <li class="patent-item">
+                <div class="patent-status">Prior Art Search: Ongoing</div>
+                <div class="patent-title">Extending Field of View in Motion Photography Assisted by Head Mounted Wearables</div>
+                <div class="patent-meta">Samsung R&D Institute, Bangladesh</div>
+              </li>
+            </ul>
+
+            <p class="pub-subsection-title">Undergraduate Thesis</p>
+            <ul class="pub-list">
+              <li class="pub-item">
+                <div class="pub-venue">IUTOIC-REPO · 2024</div>
+                <div class="pub-title">Leveraging RLHF with Instruction Fine-Tuning for Improving LLM Responses in Bangla Conversations</div>
+                <div class="pub-authors">T. Rahman, S. Mahmud, <span class="me">N. Nasrum</span></div>
+                <div class="pub-footer">
+                  <div class="pub-tags"><span class="tag accent">RLHF</span><span class="tag accent">SFT</span><span class="tag">PPO</span></div>
+                  <div class="pub-links"><a class="pub-link" href="https://repository.iutoic-dhaka.edu/items/2d90a902-d923-48e5-a1a3-7ccbf4b59c0e/full" target="_blank">Link ↗</a></div>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Past Research Collaborations -->
+          <section id="collaborations">
+            <h2>Past Research Collaborations</h2>
+            <div class="collaborators-grid">
+              <div class="collaborator-card">
+                <div class="collaborator-inst">National Institute of Mental Health (NIMH), Bangladesh</div>
+                <div class="collaborator-name"><a href="https://nimh.gov.bd/doctorList.php?department=7" target="_blank">NIMH Research Team</a></div>
+                <div class="collaborator-note">Collaborated with NIMH psychiatrists and therapists to convert their proprietary counseling techniques into structured datasets for Bangla.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Sessions -->
+          <section id="sessions">
+            <h2>Talks</h2>
+            <ul class="session-list">
+              <li class="session-item"><span class="session-date">2026</span><span class="session-text"><strong>Journey of a Pull Request to A1 Patent</strong> — With my co-authors, I was invited by SRBD Tech Management to share our experience turning a project implementation into an A1-graded patent.</span></li>
+              <li class="session-item"><span class="session-date">2024</span><span class="session-text"><strong>Aligning LLMs with Instruction Fine-Tuning and RLHF</strong> — With my thesis colleagues, I was invited to a seminar organized by the System and Software Lab to introduce LLM alignment techniques to early-career NLP researchers.</span></li>
+              <li class="session-item"><span class="session-date">2023</span><span class="session-text"><strong>Graph Theory and Problem Solving</strong> — A webinar organized by the IUT Programming Society for second-year students, where I shared my experience at ICPC with graph theory problems.</span></li>
+            </ul>
+          </section>
+
+          <!-- Grants -->
+          <section id="grants">
+            <h2>Grants & Funding</h2>
+
+            <div class="grant-group">
+              <p class="grant-subsection-title">Grants I contributed to as a researcher</p>
+
+              <div class="grant-item contributed">
+                <div class="grant-title">Undergraduate Research Grant</div>
+                <div class="grant-meta">Received by System and Software Lab · 2024</div>
+                <div class="grant-desc">Contributed to research that applies large language models, aligned with the NIMH counseling techniques through RLHF and SFT, to support people with mental health conditions across Bangladesh.</div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer>
+        <div class="page">
+          Nur Nasrum · <a href="https://research.samsung.com/srbd" target="_blank">Samsung Research Bangladesh</a> · <a href="mailto:nn.nasrum@gmail.com">nn.nasrum@gmail.com</a> · © 2026
+          <div style="margin-top: 10px;">
+            <a href="https://nur-nasrum.goatcounter.com" target="_blank" id="visit-counter" style="font-family: var(--mono); font-size: 0.78rem; color: var(--muted); border-bottom: none;">— visits</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+    fetch('https://nur-nasrum.goatcounter.com/counter/TOTAL.json')
+      .then(r => r.json())
+      .then(d => {
+        document.getElementById('visit-counter').textContent = `— ${d.count_unique} visits`;
+      })
+      .catch(() => { });
+    </script>
+
+    <script>
+    let expanded = false;
+    const items = document.querySelectorAll('#newsList .news-item');
+    items.forEach((item, i) => { if (i >= 6) item.style.display = 'none'; });
+    function toggleNews() {
+      expanded = !expanded;
+      items.forEach((item, i) => { if (i >= 6) item.style.display = expanded ? 'grid' : 'none'; });
+      document.getElementById('moreBtn').textContent = expanded ? 'Show less ↑' : 'Show more ↓';
+    }
+    </script>
+
+    <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      function sync() {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        btn.setAttribute('aria-pressed', String(dark));
+      }
+      if (!btn) return;
+      sync();
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        if (next === 'light') root.removeAttribute('data-theme');
+        else root.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', next);
+        sync();
+      });
+    })();
+    </script>
+
+  </body>
+
+</html>
