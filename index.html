@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script data-goatcounter="https://nur-nasrum.goatcounter.com/count" async
       src="//gc.zgo.at/count.js"></script>
-    <title>Nur Nasrum - Researcher</title>
+    <title>Nur Nasrum</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" sizes="any">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link
       href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet">
@@ -121,6 +123,34 @@
       font-weight: 500;
       border-bottom: none;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-mark {
+      display: block;
+      flex: none;
+    }
+
+    .nav-mark-tile {
+      fill: #1b5a7a;
+    }
+
+    .nav-mark-letters {
+      fill: #ffffff;
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    [data-theme="dark"] .nav-mark-tile {
+      fill: #58a6ff;
+    }
+
+    [data-theme="dark"] .nav-mark-letters {
+      fill: #0d1117;
     }
 
     .nav-links {
@@ -949,7 +979,13 @@
 
     <nav>
       <div class="inner">
-        <span class="nav-brand">NS</span>
+        <span class="nav-brand">
+          <svg class="nav-mark" viewBox="0 0 64 64" width="28" height="28" aria-hidden="true" focusable="false">
+            <rect class="nav-mark-tile" x="0" y="0" width="64" height="64" rx="10.25"></rect>
+            <text class="nav-mark-letters" x="32" y="32" dy="0.35em" text-anchor="middle">NS</text>
+          </svg>
+          <span>WELCOME</span>
+        </span>
         <ul class="nav-links">
           <li><a href="#intro">Intro</a></li>
           <li><a href="#news">News</a></li>
@@ -992,13 +1028,13 @@
           <section id="intro">
             <h2>Intro</h2>
             <p class="hero-bio">
-              I am an R&D Engineer at <a href="https://research.samsung.com/srbd" target="_blank">Samsung Research Bangladesh</a>, where I work on wearable sensing pipelines and production systems for Galaxy devices. Previously, I was an undergraduate student and research assistant at <a href="https://www.iutoic-dhaka.edu/about">IUTOIC</a>. My research interest revolves around On-Device AI, Acoustic and Physical Behavior Sensing, Trustworthy ML — developing practical, human-centered technology for health and assistive use cases.
+              I am an R&D Engineer at <a href="https://research.samsung.com/srbd" target="_blank">Samsung Research Bangladesh</a>, where I work on wearable sensing pipelines and production systems for Galaxy devices. Previously, I was an undergraduate student and research assistant at <a href="https://www.iutoic-dhaka.edu/about">IUTOIC</a>. My research interest revolves around AI for Health, Acoustic and Physical Behavior Sensing, Ubiquitous Computing, Trustworthy ML — specifically designing sensors and AI architectures to more reliable, efficient and intelligent for assistive use cases.
             </p>
             <div class="interests">
               <span class="tag accent">Human-Centered Interaction with Wearables</span>
               <span class="tag accent">Biosensing</span>
               <span class="tag accent">AI for Health</span>
-              <span class="tag accent">Gesture Recognition</span>
+              <span class="tag accent">Ubiquitous Computing</span>
               <span class="tag">Trustworthy ML</span>
               <span class="tag">On-Device AI</span>
             </div>
@@ -1030,7 +1066,7 @@
               </li>
               <li class="news-item">
                 <span class="news-date">Dec 2024</span>
-                <span class="news-text"><strong>Samsung Professional Certification</strong> — Passed the Samsung Electronics proctored assessment on System Design and Algorithms, earning certification and a cash prize. <a class="proof-link" href="https://www.linkedin.com/in/nur-nasrum/overlay/Certifications/1717573036/treasury/?profileId=ACoAAEIw0TUBu5uj9pfUItkOK9CrD4hB-uS3q2k" target="_blank">Certificate ↗</a></span>
+                <span class="news-text"><strong>Samsung Professional Certification</strong> — Passed the Samsung Electronics proctored assessment on problem solving with System Design and Algorithms, earning certification and a cash prize. <a class="proof-link" href="https://www.linkedin.com/in/nur-nasrum/overlay/Certifications/1717573036/treasury/?profileId=ACoAAEIw0TUBu5uj9pfUItkOK9CrD4hB-uS3q2k" target="_blank">Certificate ↗</a></span>
               </li>
               <li class="news-item">
                 <span class="news-date">Jun 2024</span>
@@ -1130,7 +1166,7 @@
             <h2>Talks</h2>
             <ul class="session-list">
               <li class="session-item"><span class="session-date">2026</span><span class="session-text"><strong>Journey of a Pull Request to A1 Patent</strong> — With my co-authors, I was invited by SRBD Tech Management to share our experience turning a project implementation into an A1-graded patent.</span></li>
-              <li class="session-item"><span class="session-date">2024</span><span class="session-text"><strong>Aligning LLMs with Instruction Fine-Tuning and RLHF</strong> — With my thesis colleagues, I was invited to a seminar organized by the System and Software Lab to introduce LLM alignment techniques to early-career NLP researchers.</span></li>
+              <li class="session-item"><span class="session-date">2024</span><span class="session-text"><strong>Aligning LLMs with Instruction Fine-Tuning and RLHF</strong> — With my thesis teammates, I was invited to a seminar organized by the System and Software Lab to introduce LLM alignment techniques to early-career NLP researchers.</span></li>
               <li class="session-item"><span class="session-date">2023</span><span class="session-text"><strong>Graph Theory and Problem Solving</strong> — A webinar organized by the IUT Programming Society for second-year students, where I shared my experience at ICPC with graph theory problems.</span></li>
             </ul>
           </section>
